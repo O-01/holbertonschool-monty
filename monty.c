@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 
 	conveY(&head);
 
+/*	freeStack();*/
 	exit(EXIT_SUCCESS);
 
 	return (0);

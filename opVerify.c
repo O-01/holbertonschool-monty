@@ -19,12 +19,10 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 		{"nop", nop},
 		{NULL, NULL}
 	};
-	int i = 0, sz = 0;
+	int i = 0;
 
 	if (cmd)
-		for (i = 0, sz = (sizeof(ops) / sizeof(instr_t));
-		     i < (sz - 1);
-		     i++)
+		for (i = 0; ops[i].opcode; i++)
 			if (!strcmp(ops[i].opcode, cmd))
 			{
 				ops[i].f(stack, line_n);
@@ -32,5 +30,6 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 			}
 
 	fprintf(stderr, "L%lu: unknown instruction %s\n", line_n, cmd);
+/*	freeStack();*/
 	exit(EXIT_FAILURE);
 }
