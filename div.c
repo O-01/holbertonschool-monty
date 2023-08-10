@@ -12,7 +12,7 @@ void diV(stack_t **stack, size_t line_n)
 
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%lu: can't add, stack too short\n", line_n);
+		fprintf(stderr, "L%lu: can't div, stack too short\n", line_n);
 		freeStack(stack);
 		exit(EXIT_FAILURE);
 	}
