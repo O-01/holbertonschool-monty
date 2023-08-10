@@ -8,7 +8,6 @@
 
 void swap(stack_t **stack, size_t line_n)
 {
-	int i = 0;
 	stack_t *oldtop = NULL, *newtop = NULL;
 
 	if (!*stack || !(*stack)->next)
@@ -19,10 +18,10 @@ void swap(stack_t **stack, size_t line_n)
 	}
 
 	oldtop = *stack;
+	newtop = oldtop->next;
 	oldtop->next = newtop->next;
 	newtop->next = oldtop;
 	oldtop->prev = newtop;
-	newtop->prev = NULL;
 
 	*stack = newtop;
 }
