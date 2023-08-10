@@ -69,6 +69,7 @@ void push(stack_t **stack, size_t line_n);
 void pop(stack_t **stack, size_t line_n);
 void swap(stack_t **stack, size_t line_n);
 void nop(stack_t **stack, size_t line_n);
+void rotl(stack_t **stack, size_t line_n);
 
 /* printer opcodes */
 void pall(stack_t **stack, size_t line_n);
