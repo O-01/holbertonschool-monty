@@ -24,6 +24,7 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	int i = 0, sz = 0;
