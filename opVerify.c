@@ -21,7 +21,6 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 		{"div", diV},
 		{"mul", mul},
 		{"mod", mod},
-		{"#", nop},
 		{NULL, NULL}
 	};
 	int i = 0, sz = 0;
@@ -35,6 +34,9 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 				ops[i].f(stack, line_n);
 				return;
 			}
+
+	if (cmd[0] == '#')
+		nop(stack, line_n);
 
 	fprintf(stderr, "L%lu: unknown instruction %s\n", line_n, cmd);
 	freeStack(stack);
