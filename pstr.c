@@ -12,7 +12,7 @@ void pstr(stack_t **stack, size_t line_n)
 
 	if (!*stack)
 	{
-		fprintf(stderr, "L%lu: can't pstr, stack empty", line_n);
+		fprintf(stderr, "L%lu: can't pstr, stack empty\n", line_n);
 		freeStack(stack);
 		exit(EXIT_FAILURE);
 	}
