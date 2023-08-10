@@ -62,13 +62,21 @@ extern global_t share;
 FILE *openFile(int argc, char *inFile);
 ssize_t convey(stack_t **stack);
 void opVerify(stack_t **stack, char *, size_t);
+void freeStack(stack_t **stack);
+
+/* opcodes */
 void push(stack_t **stack, size_t line_n);
 void pall(stack_t **stack, size_t line_n);
 void pint(stack_t **stack, size_t line_n);
 void pop(stack_t **stack, size_t line_n);
 void swap(stack_t **stack, size_t line_n);
-void add(stack_t **stack, size_t line_n);
 void nop(stack_t **stack, size_t line_n);
-void freeStack(stack_t **stack);
+
+/* arithmetic opcodes */
+void add(stack_t **stack, size_t line_n);
+void sub(stack_t **stack, size_t line_n);
+void diV(stack_t **stack, size_t line_n);
+void mul(stack_t **stack, size_t line_n);
+void mod(stack_t **stack, size_t line_n);
 
 #endif

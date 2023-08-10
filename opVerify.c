@@ -17,6 +17,10 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
+		{"div", diV},
+		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 	int i = 0, sz = 0;
