@@ -17,6 +17,13 @@ void mod(stack_t **stack, size_t line_n)
 		exit(EXIT_FAILURE);
 	}
 
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%lu: division by zero\n", line_n);
+		freeStack(stack);
+		exit(EXIT_FAILURE);
+	}
+
 	oldtopMOD = *stack;
 	newtopRES = oldtopMOD->next;
 	newtopRES->n %= oldtopMOD->n;
