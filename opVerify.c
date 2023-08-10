@@ -35,10 +35,10 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 				return;
 			}
 
-	if (cmd[0] == '#')
-		nop(stack, line_n);
-
-	fprintf(stderr, "L%lu: unknown instruction %s\n", line_n, cmd);
-	freeStack(stack);
-	exit(EXIT_FAILURE);
+	if (cmd[0] != '#')
+	{
+		fprintf(stderr, "L%lu: unknown instruction %s\n", line_n, cmd);
+		freeStack(stack);
+		exit(EXIT_FAILURE);
+	}
 }
