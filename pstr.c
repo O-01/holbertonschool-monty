@@ -10,11 +10,12 @@ void pstr(stack_t **stack, size_t line_n)
 {
 	stack_t *top = NULL;
 
+	(void)line_n;
+
 	if (!*stack)
 	{
-		fprintf(stderr, "L%lu: can't pstr, stack empty\n", line_n);
-		freeStack(stack);
-		exit(EXIT_FAILURE);
+		putchar('\n');
+		return;
 	}
 
 	top = *stack;
