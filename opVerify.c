@@ -2,9 +2,9 @@
 
 /**
  * opVerify - manages commands & calls correlating function upon matching input
- * @stack:
+ * @stack: stack upon which operations are expected to be performed
  * @cmd: command to be verified against list of valid instructions
- * @line_n:
+ * @line_n: line number within monty instruction file
  */
 
 void opVerify(stack_t **stack, char *cmd, size_t line_n)
@@ -19,10 +19,12 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 		{"nop", nop},
 		{NULL, NULL}
 	};
-	int i = 0;
+	int i = 0, sz = 0;
 
 	if (cmd)
-		for (i = 0; ops[i].opcode; i++)
+		for (i = 0, sz = (sizeof(ops) / sizeof(instr_t));
+		     i < (sz - 1);
+		     i++)
 			if (!strcmp(ops[i].opcode, cmd))
 			{
 				ops[i].f(stack, line_n);
@@ -30,6 +32,6 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 			}
 
 	fprintf(stderr, "L%lu: unknown instruction %s\n", line_n, cmd);
-/*	freeStack();*/
+	freeStack(stack);
 	exit(EXIT_FAILURE);
 }

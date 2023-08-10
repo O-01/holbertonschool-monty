@@ -4,20 +4,20 @@ global_t share;
 
 /**
  * main - entrance to monty interpreter program
- * @argc - argument count
- * @argv - vector of arguments supplied upon launch
+ * @argc: argument count
+ * @argv: vector of arguments supplied upon launch
  * Return: 0 upon success
  */
 
 int main(int argc, char **argv)
 {
-	stack_t *head = NULL;
+	stack_t *stack = NULL;
 
 	iniT(argc, argv[1]);
 
-	conveY(&head);
+	convey(&stack);
 
-/*	freeStack();*/
+	freeStack(&stack);
 	exit(EXIT_SUCCESS);
 
 	return (0);

@@ -2,8 +2,8 @@
 
 /**
  * push - push element to stack
- * @stack:
- * @line_n:
+ * @stack: stack, to the top of which an element is to be pushed
+ * @line_n: line number within monty instruction file
  */
 
 void push(stack_t **stack, size_t line_n)
@@ -13,27 +13,36 @@ void push(stack_t **stack, size_t line_n)
 	stack_t *top = NULL;
 
 	value = strtok(NULL, SPC_DELIM);
-	for (i = 0, invalid = 0; value[i]; i++)
-		if (value[i] < '0' || value[i] > '9')
-			invalid = 1;
-	if (!value || invalid)
+
+	if (!value)
 	{
 		fprintf(stderr, "L%lu: usage: push integer\n", line_n);
-/*		freeStack();*/
+		freeStack(stack);
+		exit(EXIT_FAILURE);
+	}
+	for (i = 0, invalid = 0; value[i]; i++)
+	{
+		if (value[0] == '-')
+			i++;
+		if (value[i] < '0' || value[i] > '9')
+			invalid = 1;
+	}
+	if (invalid)
+	{
+		fprintf(stderr, "L%lu: usage: push integer\n", line_n);
+		freeStack(stack);
 		exit(EXIT_FAILURE);
 	}
 	top = malloc(sizeof(stack_t));
 	if (!top)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-/*		freeStack();*/
+		freeStack(stack);
 		exit(EXIT_FAILURE);
 	}
-
 	top->n = atoi(value);
 	top->prev = NULL;
 	top->next = *stack;
-
 	if (*stack)
 		(*stack)->prev = top;
 

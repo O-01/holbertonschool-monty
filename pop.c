@@ -1,25 +1,24 @@
 #include "monty.h"
 
 /**
- * pop - remove
- * @stack -
- * @line_n -
+ * pop - remove top element from stack
+ * @stack: stack from which top is to be removed
+ * @line_n: line number within monty instruction file
  */
 
 void pop(stack_t **stack, size_t line_n)
 {
 	stack_t *del;
 
-	if (!(*stack))
+	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%lu: can't pop an empty stack\n", line_n);
-/*		freeStack();*/
+		freeStack(stack);
 		exit(EXIT_FAILURE);
 	}
 
 	del = *stack;
 	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
 
 	free(del);
 }

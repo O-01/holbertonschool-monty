@@ -21,6 +21,6 @@ FILE *iniT(int argc, char *inFile)
 		exit(EXIT_FAILURE);
 	}
 
-	share.inFile = myS;
+	share.file = myS;
 	return (myS);
 }
