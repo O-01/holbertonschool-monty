@@ -12,7 +12,7 @@ void rotl(stack_t **stack, size_t line_n)
 
 	(void)line_n;
 
-	if (!*stack)
+	if (!*stack || !(*stack)->next)
 		return;
 
 	oldtop = *stack;
