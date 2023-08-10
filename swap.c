@@ -22,6 +22,7 @@ void swap(stack_t **stack, size_t line_n)
 	oldtop->next = newtop->next;
 	newtop->next = oldtop;
 	oldtop->prev = newtop;
+	newtop->prev = NULL;
 
 	*stack = newtop;
 }

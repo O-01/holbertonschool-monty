@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * iniT - opens file, if it exists
+ * openFile - opens file, if it exists
  * @argc: argument count to main upon launch
  * @inFile: argv[1], or file to be opened for interpretation
  * Return: file pointer to newly opened file stream
  */
 
-FILE *iniT(int argc, char *inFile)
+FILE *openFile(int argc, char *inFile)
 {
 	FILE *myS;
 

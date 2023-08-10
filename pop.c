@@ -8,7 +8,7 @@
 
 void pop(stack_t **stack, size_t line_n)
 {
-	stack_t *del;
+	stack_t *del = NULL, *newtop = NULL;
 
 	if (!stack || !*stack)
 	{
@@ -18,7 +18,9 @@ void pop(stack_t **stack, size_t line_n)
 	}
 
 	del = *stack;
-	*stack = (*stack)->next;
+	newtop = del->next;
+
+	*stack = newtop;
 
 	free(del);
 }

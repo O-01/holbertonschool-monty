@@ -59,7 +59,7 @@ typedef struct global_s
 
 extern global_t share;
 
-FILE *iniT(int argc, char *inFile);
+FILE *openFile(int argc, char *inFile);
 ssize_t convey(stack_t **stack);
 void opVerify(stack_t **stack, char *, size_t);
 void push(stack_t **stack, size_t line_n);

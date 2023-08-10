@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
 
-	iniT(argc, argv[1]);
+	openFile(argc, argv[1]);
 
 	convey(&stack);
 
