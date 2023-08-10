@@ -16,5 +16,6 @@ void freeStack(stack_t **stack)
 
 	for (top = *stack; top;)
 		pos = top, top = top->next, free(pos);
+
 	*stack = NULL;
 }

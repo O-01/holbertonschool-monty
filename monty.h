@@ -64,11 +64,10 @@ ssize_t convey(stack_t **stack);
 void opVerify(stack_t **stack, char *, size_t);
 void freeStack(stack_t **stack);
 
-/* opcodes */
+/* operation opcodes */
 void push(stack_t **stack, size_t line_n);
 void pop(stack_t **stack, size_t line_n);
 void swap(stack_t **stack, size_t line_n);
-void nop(stack_t **stack, size_t line_n);
 void rotl(stack_t **stack, size_t line_n);
 void rotr(stack_t **stack, size_t line_n);
 
@@ -84,5 +83,8 @@ void sub(stack_t **stack, size_t line_n);
 void diV(stack_t **stack, size_t line_n);
 void mul(stack_t **stack, size_t line_n);
 void mod(stack_t **stack, size_t line_n);
+
+/* no operation opcode */
+void nop(stack_t **stack, size_t line_n);
 
 #endif

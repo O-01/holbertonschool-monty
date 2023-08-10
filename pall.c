@@ -12,6 +12,6 @@ void pall(stack_t **stack, size_t line_n)
 
 	(void)line_n;
 
-	for (pos = *stack; pos;)
-		printf("%d\n", pos->n), pos = pos->next;
+	for (pos = *stack; pos; pos = pos->next)
+		printf("%d\n", pos->n);
 }

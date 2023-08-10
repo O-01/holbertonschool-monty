@@ -18,9 +18,7 @@ void pstr(stack_t **stack, size_t line_n)
 		return;
 	}
 
-	top = *stack;
-
-	for (; top; top = top->next)
+	for (top = *stack; top; top = top->next)
 	{
 		if (top->n < 32 || top->n > 126)
 			break;

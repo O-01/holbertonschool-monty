@@ -45,6 +45,5 @@ void push(stack_t **stack, size_t line_n)
 	top->next = *stack;
 	if (*stack)
 		(*stack)->prev = top;
-
 	*stack = top;
 }

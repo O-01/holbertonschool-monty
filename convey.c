@@ -12,13 +12,14 @@ ssize_t convey(stack_t **stack)
 	ssize_t gotLine = 0, gotTotal = 0;
 	size_t inLen = 0, line_n = 1;
 
-	for (; (gotLine = getline(&inPut, &inLen, share.file)) != -1; line_n++)
+	for (gotTotal = 0;
+	     (gotLine = getline(&inPut, &inLen, share.file)) != -1;
+	     line_n++, gotTotal += gotLine)
 	{
 		cmd = strtok(inPut, SPC_DELIM);
 		share.line = cmd;
 		if (cmd)
 			opVerify(stack, cmd, line_n);
-		gotTotal += gotLine;
 	}
 	return (gotTotal);
 }
