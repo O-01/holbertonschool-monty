@@ -3,7 +3,7 @@
 /**
  * pstr - prints string beginning at top of stack, if valid
  * @stack: stack, value of top of which to be printed
- * @ln_n: line number within monty instruction file
+ * @line_n: line number within monty instruction file
  */
 
 void pstr(stack_t **stack, size_t line_n)
