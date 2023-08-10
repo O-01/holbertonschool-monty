@@ -8,5 +8,21 @@
 
 void swap(stack_t **stack, size_t line_n)
 {
-	(void)stack, (void)line_n;
+	int i = 0;
+	stack_t *oldtop = NULL, *newtop = NULL;
+
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%lu: can't swap, stack too short", line_n);
+		freeStack(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	oldtop = *stack;
+	oldtop->next = newtop->next;
+	newtop->next = oldtop;
+	oldtop->prev = newtop;
+	newtop->prev = NULL;
+
+	*stack = newtop;
 }
