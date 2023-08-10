@@ -20,9 +20,9 @@ void push(stack_t **stack, size_t line_n)
 		freeStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0, invalid = 0; value[i]; i++)
+	for (invalid = 0; value[i]; i++)
 	{
-		if (value[0] == '-')
+		if (i == 0 && value[i] == '-')
 			i++;
 		if (value[i] < '0' || value[i] > '9')
 			invalid = 1;
