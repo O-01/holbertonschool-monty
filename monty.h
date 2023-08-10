@@ -66,11 +66,15 @@ void freeStack(stack_t **stack);
 
 /* opcodes */
 void push(stack_t **stack, size_t line_n);
-void pall(stack_t **stack, size_t line_n);
-void pint(stack_t **stack, size_t line_n);
 void pop(stack_t **stack, size_t line_n);
 void swap(stack_t **stack, size_t line_n);
 void nop(stack_t **stack, size_t line_n);
+
+/* printer opcodes */
+void pall(stack_t **stack, size_t line_n);
+void pint(stack_t **stack, size_t line_n);
+void pchar(stack_t **stack, size_t line_n);
+void pstr(stack_t **stack, size_t line_n);
 
 /* arithmetic opcodes */
 void add(stack_t **stack, size_t line_n);

@@ -21,6 +21,8 @@ void opVerify(stack_t **stack, char *cmd, size_t line_n)
 		{"div", diV},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i = 0, sz = 0;
