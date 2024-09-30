@@ -5,26 +5,20 @@
  * @stack: stack, top element of which to be rotated to stack bottom
  * @line_n: line number within monty instruction file
  */
-
 void rotl(stack_t **stack, size_t line_n)
 {
-	stack_t *iterant = NULL, *newtop = NULL, *oldtop = NULL;
+	stack_t *iter = NULL, *newtop = NULL, *oldtop = NULL;
 
 	(void)line_n;
-
 	if (!*stack || !(*stack)->next)
 		return;
-
 	oldtop = *stack;
 	newtop = oldtop->next;
 	newtop->prev = NULL;
-
-	for (iterant = oldtop; iterant->next; iterant = iterant->next)
+	for (iter = oldtop; iter->next; iter = iter->next)
 		;
-
-	iterant->next = oldtop;
+	iter->next = oldtop;
 	oldtop->next = NULL;
-	oldtop->prev = iterant;
-
+	oldtop->prev = iter;
 	*stack = newtop;
 }

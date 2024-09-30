@@ -22,7 +22,6 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-
 typedef struct stack_s
 {
 	int n;
@@ -38,7 +37,6 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
-
 typedef struct instr_s
 {
 	char *opcode;
@@ -50,7 +48,6 @@ typedef struct instr_s
  * @line: line read from file
  * @file: input file containing instructions on one or more lines
  */
-
 typedef struct global_s
 {
 	char *line;
@@ -59,10 +56,10 @@ typedef struct global_s
 
 extern global_t share;
 
-FILE *openFile(int argc, char *inFile);
+FILE *open_file(int argc, char *inFile);
 ssize_t convey(stack_t **stack);
-void opVerify(stack_t **stack, char *, size_t);
-void freeStack(stack_t **stack);
+void op_verify(stack_t **stack, char *, size_t);
+void free_stack(stack_t **stack);
 
 /* operation opcodes */
 void push(stack_t **stack, size_t line_n);

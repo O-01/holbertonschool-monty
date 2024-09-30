@@ -5,21 +5,18 @@
  * @stack: stack, top 2 elements of which to be multiplied
  * @line_n: line number within monty instruction file
  */
-
 void mul(stack_t **stack, size_t line_n)
 {
-	stack_t *oldtopMUL = NULL, *newtopRES = NULL;
+	stack_t *oldtop_mul = NULL, *newtop_res = NULL;
 
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%lu: can't mul, stack too short\n", line_n);
-		freeStack(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-
-	oldtopMUL = *stack;
-	newtopRES = oldtopMUL->next;
-	newtopRES->n *= oldtopMUL->n;
-
+	oldtop_mul = *stack;
+	newtop_res = oldtop_mul->next;
+	newtop_res->n *= oldtop_mul->n;
 	pop(stack, line_n);
 }

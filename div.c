@@ -5,28 +5,24 @@
  * @stack: stack, top 2 elements of which to be divided
  * @line_n: line number within monty instruction file
  */
-
 void diV(stack_t **stack, size_t line_n)
 {
-	stack_t *oldtopDIV = NULL, *newtopRES = NULL;
+	stack_t *oldtop_div = NULL, *newtop_res = NULL;
 
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%lu: can't div, stack too short\n", line_n);
-		freeStack(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-
-	if ((*stack)->n == 0)
+	else if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%lu: division by zero\n", line_n);
-		freeStack(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-
-	oldtopDIV = *stack;
-	newtopRES = oldtopDIV->next;
-	newtopRES->n /= oldtopDIV->n;
-
+	oldtop_div = *stack;
+	newtop_res = oldtop_div->next;
+	newtop_res->n /= oldtop_div->n;
 	pop(stack, line_n);
 }
